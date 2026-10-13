@@ -41,14 +41,16 @@ uv sync
 
 ```bash
 #create file  .gitattributes with -> * text=auto eol=lf
-git add .
-
-uv init --python 3.8
-#copy all the libraries into dependencies of pyproject.toml file
-uv sync
+git add .  # git restore --staged .
+git status
+git commit -m "project setup"
+git push origin main
 ```
 
-
+```bash
+#for ipynb
+uv add --dev ipykernel
+```
 
 
 ### STEP 03- Run the app.py file
