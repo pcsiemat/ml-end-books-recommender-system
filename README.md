@@ -52,6 +52,21 @@ git push origin main
 uv add --dev ipykernel
 ```
 
+```bash
+# create template.py file and run
+# add into pyproject.toml  
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["ml_books_recommender_system*"]
+```
+
+
+
+
 
 ### STEP 03- Run the app.py file
 ```bash

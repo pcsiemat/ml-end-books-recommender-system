@@ -5,7 +5,7 @@ import logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 
-project_name = "ml-books-recommender-system"
+project_name = "ml_books_recommender_system"
 
 
 list_of_files = [
@@ -32,8 +32,6 @@ list_of_files = [
     ".dockerignore",
     "app.py",
     "Dockerfile",
-    "setup.py",
-    "test.py"
 
 ]
 
