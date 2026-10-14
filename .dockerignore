@@ -1,0 +1,22 @@
+# Entornos virtuales y secretos
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Se generan dentro del contenedor
+artifacts/
+logs/
+*.egg-info/
+__pycache__/
+*.pyc
+
+# No necesarios para la app
+notebook/
+.git/
+.gitignore
+.dockerignore
+README.md
