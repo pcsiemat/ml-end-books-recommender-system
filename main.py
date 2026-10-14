@@ -1,0 +1,4 @@
+from ml_books_recommender_system.pipeline.training_pipeline import TrainingPipeline
+
+obj = TrainingPipeline()
+obj.start_training_pipeline()
