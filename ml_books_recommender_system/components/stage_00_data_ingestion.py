@@ -2,7 +2,8 @@ import os
 import sys
 import zipfile
 #import urllib.request
-import subprocess
+import requests
+#import subprocess
 
 from ml_books_recommender_system.logger.log import logging
 from ml_books_recommender_system.exception.exception_handler import AppException
@@ -39,7 +40,12 @@ class DataIngestion:
 
             logging.info(f"Downloading data from {dataset_url} into file {zip_file_path}")
             #urllib.request.urlretrieve(dataset_url, zip_file_path)
-            subprocess.run(["curl", "-L", "-f", "-o", zip_file_path, dataset_url], check=True)
+            #subprocess.run(["curl", "-L", "-f", "-o", zip_file_path, dataset_url], check=True)
+            with requests.get(dataset_url, stream=True, timeout=120) as r:
+                r.raise_for_status()
+                with open(zip_file_path, "wb") as f:
+                    for chunk in r.iter_content(chunk_size=8192):
+                        f.write(chunk)
             logging.info(f"Downloaded data from {dataset_url} into file {zip_file_path}")
             return zip_file_path
 

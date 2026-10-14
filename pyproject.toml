@@ -3,12 +3,13 @@ name = "ml-end-books-recommender-system"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
-requires-python = ">=3.8"
+requires-python = ">=3.11"
 dependencies = [
     "scikit-learn",
     "pandas",
     "numpy",
     "PyYAML",
+    "requests",
     "streamlit",
 ]
 
