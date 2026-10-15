@@ -9,6 +9,7 @@ __pycache__/
 #notebooks
 notebook/artifacts/*
 artifacts/*
+*.jpg
 
 # Distribution / packaging
 .Python

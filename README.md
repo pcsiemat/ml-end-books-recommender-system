@@ -97,70 +97,92 @@ streamlit run app.py
        Edit inbound rules
         Add rule
           custom TCP 8501 - source 0.0.0.0.00
-  Connect Machine        
+  Connect Machine      
+
 ## 2. Run the following commands
 
 Note: Do the port mapping to this port:- 8501
 
 ```bash
+#updates libraries
 sudo apt-get update -y
-
 sudo apt-get upgrade
 
 #Install Docker
 
+# Download the official Docker installation script and save it as get-docker.sh
 curl -fsSL https://get.docker.com -o get-docker.sh
-
+# Run the script with admin privileges: installs Docker and starts it
 sudo sh get-docker.sh
-
+# Add the "ubuntu" user to the docker group to run Docker without sudo
 sudo usermod -aG docker ubuntu
-
+# Apply the new group to the current session without logging out and back in
 newgrp docker
+
 ```
 
 ```bash
 #Go to github and clone the repo
 git clone "your-project"
+#Then -->>>> cd to the folder
 ```
 
 ```bash
-docker build -t entbappy/stapp:latest . 
+#build on ec2 the image
+docker build -t pcsiemat/bookapp:latest . 
 ```
 
 ```bash
+#check the image
 docker images -a  
 ```
 
 ```bash
-docker run -d -p 8501:8501 entbappy/stapp 
+#execute the image as a container
+docker run -d -p 8501:8501 pcsiemat/bookapp 
 ```
 
 ```bash
+#check the container running in a browser (Public IPv4 address on aws)
+http://ip:8501
+```bash
+
+```bash
+#check container is running
 docker ps  
 ```
 
 ```bash
+#stop and check de container stop
 docker stop container_id
+docker ps  -a
 ```
 
 ```bash
+#remove all container that are stopped
 docker rm $(docker ps -a -q)
 ```
 
+## 3. Publish image on dockerhub (First log in)
 ```bash
-docker login 
+#On EC2
+docker login
+#Copy link to browser 
 ```
 
 ```bash
-docker push entbappy/stapp:latest 
+#publish on docker hub
+docker push pcsiemat/bookapp:latest 
 ```
 
 ```bash
-docker rmi entbappy/stapp:latest
+#remove image form ec2
+docker rmi pcsiemat/bookapp:latest
 ```
 
 ```bash
-docker pull entbappy/stapp
+$get images from dockerhub
+docker pull pcsiemat/bookapp
 ```
 
 
