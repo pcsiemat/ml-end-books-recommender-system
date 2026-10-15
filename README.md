@@ -77,10 +77,27 @@ include = ["ml_books_recommender_system*"]
 streamlit run app.py
 ```
 
+### STEP 04- Create DockerFile and Dockerignore
+
+
+
 
 # Streamlit app Docker Image Deployment
 
 ## 1. Login with your AWS console and launch an EC2 instance
+  create EC2 
+   name :books-recommender-dev
+   machine : ubuntu machine (Ubuntu Server 26.04 LTS (HVM),EBS General Purpose (SSD) Volume Type.)
+   instance : t3a.small (AMD)
+   key pair : book
+   network settings : shh / https / http
+  Instance EC2
+   security 
+     security groups
+       Edit inbound rules
+        Add rule
+          custom TCP 8501 - source 0.0.0.0.00
+  Connect Machine        
 ## 2. Run the following commands
 
 Note: Do the port mapping to this port:- 8501
@@ -102,6 +119,7 @@ newgrp docker
 ```
 
 ```bash
+#Go to github and clone the repo
 git clone "your-project"
 ```
 
